@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 International Conference on AI - Ethics and Safety</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* 响应式导航 */
+        nav { background: #2c3e50; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        nav ul { display: flex; list-style: none; justify-content: center; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 0.5rem 1rem; margin: 0 5px; border-radius: 4px; transition: background 0.3s; }
+        nav a:hover { background: #34495e; }
+        /* 横幅样式 */
+        .banner { height: 400px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+        .banner h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .banner p { font-size: 1.2rem; max-width: 800px; }
+        /* 内容区块 */
+        section { padding: 1rem 0; }
+        section h2 { color: #2c3e50; margin-bottom: 2rem; text-align: center; font-size: 2rem; }
+        .content { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        @media (min-width: 768px) { .content { grid-template-columns: repeat(2, 1fr); } }
+        .card { 
+            background: white;
+            padding: 3rem; /* 统一内边距 */
+            border: none;
+            box-shadow: none;
+            text-align: left; /* 统一左对齐 */
+            max-width: 900px; /* 统一最大宽度 */
+            width: 90%; /* 统一相对宽度 */
+            margin: 0 auto; /* 水平居中卡片 */
+        }
+        /* 移除之前的section特定卡片样式 */
+        #about .card, #speakers .card, #organizers .card {
+            /* 已合并到通用.card类中 */
+        }
+        .content { 
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            justify-items: center; /* 确保卡片在网格中居中 */
+        }
+        section h2 { 
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center; /* 保持 section 标题居中 */
+            font-size: 2rem;
+        }
+        border-radius: 0; /* 可选：同时移除圆角 */
+        }
+        footer { background: #2c3e50; color: white; text-align: center; padding: 10rem 0; margin-top: 3rem; }
+        /* 为About部分单独设置样式 */
+        #about .content {
+            grid-template-columns: 1fr !important; /* 强制单列布局 */
+        }
+        #about .card {
+            max-width: 1000px;
+            line-height: 1.6;
+            text-align: justify; /* 设置文本左右对齐 */
+            text-justify: inter-word; /* 优化英文单词间距 */
+        }
+        #about h3 {
+            text-align: center; /* 保持标题居中 */
+        }
+        #about p {
+            margin-bottom: 1rem; /* 优化段落间距 */
+            max-width: 850px; /* 控制文本块宽度 */
+            margin-left: auto; /* 段落水平居中 */
+            margin-right: auto;
+        }
+        /* 修改媒体查询确保单列布局 */
+        @media (min-width: 768px) {
+            /* 修改为所有部分都使用单列布局 */
+            .content { grid-template-columns: 1fr; }
+            /* 移除之前的#about特殊设置 */
+        }
+        /* 添加卡片容器居中样式 */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            justify-items: center; /* 确保卡片在容器中水平居中 */
+        }
+        /* 统一所有section的内容容器样式 */
+        section .content {
+            max-width: 1000px; /* 与About部分保持相同最大宽度 */
+            margin: 0 auto; /* 左右自动外边距实现居中 */
+            padding: 0 2rem; /* 两侧内边距防止内容贴边 */
+        }
+        /* 统一所有卡片样式 */
+        .card {
+            width: 100%; /* 占满父容器宽度 */
+            max-width: 900px; /* 卡片最大宽度 */
+            margin: 0 auto; /* 卡片自身居中 */
+        }
+        /* 统一所有内容区块布局 */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            justify-items: center;
+            padding: 2rem 0;
+        }
+        
+        /* 确保所有section标题样式一致 */
+        section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        border-radius: 0; /* 可选：同时移除圆角 */
+        }
+        footer { background: #2c3e50; color: white; text-align: center; padding: 10rem 0; margin-top: 3rem; }
+        /* 为About部分单独设置样式 */
+        #about .content {
+            grid-template-columns: 1fr !important; /* 强制单列布局 */
+        }
+        #about .card {
+            max-width: 1000px;
+            line-height: 1.6;
+            text-align: justify; /* 设置文本左右对齐 */
+            text-justify: inter-word; /* 优化英文单词间距 */
+        }
+        #about h3 {
+            text-align: center; /* 保持标题居中 */
+        }
+        #about p {
+            margin-bottom: 1rem; /* 优化段落间距 */
+            max-width: 850px; /* 控制文本块宽度 */
+            margin-left: auto; /* 段落水平居中 */
+            margin-right: auto;
+        }
+        /* 修改媒体查询确保单列布局 */
+        @media (min-width: 768px) {
+            /* 修改为所有部分都使用单列布局 */
+            .content { grid-template-columns: 1fr; }
+            /* 移除之前的#about特殊设置 */
+        }
+        /* 添加卡片容器居中样式 */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            justify-items: center; /* 确保卡片在容器中水平居中 */
+        }
+        /* 统一所有卡片具有相同宽度 */
+        .card {
+            /* 增大Speaker部分卡片宽度 */
+            #speakers .card {
+                max-width: 1100px; /* 原max-width可能为900px，调整为更大值 */
+                width: 95%; /* 适当增大宽度占比 */
+            }
+            width: 90%;
+            margin: 0 auto;
+            text-align: left;
+            padding: 3rem;
+        }
+        /* 统一所有内容区块的文本对齐方式 */
+        #about .card, #speakers .card, #organizers .card {
+            text-align: left;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        /* 统一列表项目符号与文字左对齐 */
+        .card ul, .card ol {
+            list-style-position: inside; /* 项目符号位于列表项内部 */
+            padding-left: 1.5rem; /* 调整内边距控制符号与文字间距 */
+            margin: 0; /* 重置默认外边距避免偏移 */
+            text-align: left; /* 强制文字左对齐 */
+        }
+            text-align: inherit;
+        }
+        /* 保持section标题居中 */
+        section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        /* 确保所有内容区块居中对齐 */
+        #speakers .content, #organizers .content {
+            justify-items: center;
+        }
+        /* 演讲者和组织者卡片居中设置 */
+        #speakers .card, #organizers .card {
+            margin: 0 auto;
+            text-align: center; /* 内容居中对齐 */
+            max-width: 680px; /* 适当调整卡片宽度 */
+        }
+        /* 演讲者姓名和职位居中 */
+        .speaker h3, .organizer h3 {
+            text-align: center;
+        }
+        /* 确保列表项居中 */
+        .organizer ul {
+            padding-left: 0;
+            list-style-position: inside;
+        }
+        /* 新增/调整标题与内容间距 */
+        .card h2, .card h3 {
+            margin-bottom: 0.8rem; /* 原可能为1.5rem或更大，调整为更小值 */
+        }
+    }
+            text-align: inherit;
+        }
+        /* 保持section标题居中 */
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        /* 确保所有内容区块居中对齐 */
+        #speakers .content, #organizers .content {
+            justify-items: center;
+        }
+        /* 演讲者和组织者卡片居中设置 */
+        #speakers .card, #organizers .card {
+            margin: 0 auto;
+            text-align: center; /* 内容居中对齐 */
+            max-width: 680px; /* 适当调整卡片宽度 */
+        }
+        /* 演讲者姓名和职位居中 */
+        .speaker h3, .organizer h3 {
+            text-align: center;
+        }
+        /* 确保列表项居中 */
+        .organizer ul {
+            padding-left: 0;
+            list-style-position: inside;
+        }
+    </style>
+</head>
+<body>
+    <header class="banner">
+        <div class="container">
+            <h1>2025 International Conference on AI - Ethics and Safety</h1>
+            <p style="text-align: right;">Oct. 25-26, 2025 | Hong Kong</p>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#speakers">Speakers</a></li>
+            <!-- 新增Conference Schedule导航项 -->
+            <li><a href="#schedule">Conference Schedule</a></li>
+            <!-- 新增Registration Information导航项 -->
+            <li><a href="#registration">Registration Information</a></li>
+            <li><a href="#organizers">Organizers</a></li>
+
+        </ul>
+    </nav>
+    <main class="container">
+        <section id="about">
+            <div class="container">
+                <h2>About</h2>
+                <div class="content">
+                    <div class="card">
+                        <h3 style="font-size: 1.2rem; color: #2980b9; margin-bottom: 1.5rem;">Welcome to 2025 International Conference on Future AI - Ethics and Safety</h3>
+                        <p>Sponsored by the National Nature Science Foundation of China, this conference focuses on the cutting-edge integration of robotics and large-scale artificial intelligence models (such as generative AI and embodied intelligence). It will cover key technologies and applications including intelligent control, multimodal perception, human-robot collaboration, autonomous systems, and AI-powered robotic platforms.</p>
+                        <p>The conference aims to bring together leading researchers, engineers, and practitioners from academia and industry to discuss the latest advances, exchange innovative ideas, and explore potential collaborations in the rapidly evolving field of AI and robotics.</p>
+                        <p>With the theme of "Building Safe and Ethical AI for Human-Machine Coexistence", the conference will feature keynote speeches by renowned experts, technical paper presentations, panel discussions, and exhibition opportunities.</p>
+                        <!-- 新增会议主题列表 -->
+                        <h3 style="font-size: 1.2em; text-align: left; margin: 0.8em 0;">Conference Topic</h3>
+                        <ul>
+                            <li>Artificial Intelligence and Societal Needs</li>
+                            <li>Biomimetic and Humanoid Robotics</li>
+                            <li>Embodied Intelligence and Robotic Application</li>
+                            <li>Safety and Security in Robotics and AI</li>
+                            <li>Ethics in AI and Robotics</li>
+                            <li>Construction Robotics and Intelligent Building</li>
+                            <li>Robotics and AI in Healthcare</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="speakers">
+            <h2>Speakers</h2>
+            <div class="content"> <!-- 添加content容器 -->
+                <div class="card"> <!-- 添加card容器 -->
+                    <ul>
+                        <li>Professor DAI, Qionghai, Academician of Chinese Academy of Engineering</li>
+                        <li>Professor ZHENG, Qinghua, Academician of Chinese Academy of Engineering</li>
+                        <li>Professor MENG, Qinghu Max, Academician of Canadian Academy of Engineering</li>
+                        <li>More speakers to be confirmed...</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="schedule">
+            <h2>Conference Schedule</h2>
+            <div class="card">
+                <table style="width:100%; border-collapse: collapse; margin-top: 1rem;">
+                    <tr style="background: #f2f2f2;">
+                        <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">Time</th>
+                        <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;">Event</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Oct. 25 AM</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Plenary Talk</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Oct. 25 PM</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Keynote Talk</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Oct. 25 PM</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Panel Discussion</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Oct. 26</td>
+                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">Parallel Session</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section id="registration">
+            <h2>Registration Information</h2>
+            <div class="content">
+                <div class="card">
+                    <h3 style="margin-bottom: 1rem; color: #34495e;">Important Dates</h3>
+                    <ul style="padding-left: 1.5rem; line-height: 1.6;">
+                        <li>Abstract submission deadline: September 20, 2025</li>
+                        <li>Early registration deadline: October 1, 2025</li>
+                    </ul>
+                    <button style="background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 4px; margin-top: 1rem; cursor: pointer;">Register Now</button>
+                </div>
+            </div>
+        </section>
+        <section id="organizers">
+            <h2>Organizers</h2>
+            <div class="content"> <!-- 添加content容器 -->
+                <div class="card"> <!-- 添加card容器 -->
+                    <p>Sponsored by the National Nature Science Foundation of China</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 International Conference on AI - Ethics and Safety. All rights reserved.</p>
+    </footer>
+</body>
+</html>
